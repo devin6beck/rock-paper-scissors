@@ -86,5 +86,21 @@ function game() {
     console.log(`Current score: computer = ${computerWins} player = ${playerWins} ties = ${ties}`)
   }
 
-  console.log(`Final score is computer: ${computerWins} player: ${playerWins} ties: ${ties}`)
+  console.log(`Final score is computer: ${computerWins} player: ${playerWins} ties: ${ties}`);
+  console.log(displayWinner(playerWins, computerWins));
+
+}
+
+function displayWinner(playerWins, computerWins) {
+  if (playerWins > computerWins) {
+    return "You beat the computer! :)"
+  }
+  
+  else if (computerWins > playerWins) {
+    return "The computer beat you! :("
+  }
+
+  else {
+    return "It's a tie!"
+  }
 }
