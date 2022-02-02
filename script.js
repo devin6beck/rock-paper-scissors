@@ -24,22 +24,18 @@ function playRound(computer, player) {
     console.log(`You Lose! ${computer} beats ${player}`)
     return "computer"
   }
-
   else if (computer == "paper" && player == "rock") {
     console.log(`You Lose! ${computer} beats ${player}`)
     return "computer"
   }
-
   else if (computer == "scissors" && player == "paper") {
     console.log(`You Lose! ${computer} beats ${player}`)
     return "computer"
   }
-
   else if (computer == player) {
     console.log(`It's a tie!`)
     return "tie"
   }
-
   else {
     console.log(`You Win! ${player} beats ${computer}`)
     return "player"
@@ -53,6 +49,7 @@ function game() {
   let playerWins = 0;
   let computerWins = 0;
   let ties = 0;
+
   for (i = 0; i < 5; i++) {
     let computer = computerPlay();
     let player = playerSelection().toLowerCase();
@@ -68,23 +65,18 @@ function game() {
       case "tie":
         ties++;
     }
-    // console.log(`Current score: computer = ${computerWins} player = ${playerWins} ties = ${ties}`)
   }
-
   console.log(`Final score is computer: ${computerWins}, player: ${playerWins}, ties: ${ties}.`);
   return displayWinner(playerWins, computerWins);
-
 }
 
 function displayWinner(playerWins, computerWins) {
   if (playerWins > computerWins) {
     return "You beat the computer! :)"
   }
-  
   else if (computerWins > playerWins) {
     return "The computer beat you! :("
   }
-
   else {
     return "It's a tie!"
   }
