@@ -65,9 +65,26 @@ function playRound(computer, player) {
 
 
 function game() {
+  let playerWins = 0;
+  let computerWins = 0;
+  let ties = 0;
   for (i = 0; i < 5; i++) {
     let computer = computerPlay();
     let player = playerSelection().toLowerCase();
-    playRound(computer, player)
+    let outcome = playRound(computer, player);
+
+    switch (outcome) {
+      case "computer":
+        computerWins++;
+        break;
+      case "player":
+        playerWins++;
+        break;
+      case "tie":
+        ties++;
+    }
+    console.log(`Current score: computer = ${computerWins} player = ${playerWins} ties = ${ties}`)
   }
+
+  console.log(`Final score is computer: ${computerWins} player: ${playerWins} ties: ${ties}`)
 }
