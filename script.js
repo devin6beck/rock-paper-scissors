@@ -1,21 +1,32 @@
+// console.log("computerPlay returns: " + computerPlay())
 
-function computerPlay() {
 
-  let random = Math.random();
+// function computerPlay() {
 
-  if (random <= 0.33) {
-    return "rock"
-  }
+//   let random = Math.random();
 
-  else if (random <= 0.66) {
-    return "paper"
-  }
+//   if (random <= 0.33) {
+//     return "rock"
+//   }
 
-  else {
-    return "scissors"
-  }
+//   else if (random <= 0.66) {
+//     return "paper"
+//   }
 
-  return play;
+//   else {
+//     return "scissors"
+//   }
+
+//   return play;
+// }
+
+
+game();
+
+function computerPlay(){
+  let options = ["rock", "paper", "scissors"];
+  // Choose rock, paper, or scissors at random
+  return options[Math.floor(Math.random()*options.length)];
 }
 
 function playerSelection() {
@@ -23,13 +34,7 @@ function playerSelection() {
   return answer;
 }
 
-const computer = computerPlay();
-console.log(`computer: ${computer}`)
-const player = playerSelection().toLowerCase();
-console.log(`player: ${player}`)
-
 function playRound(computer, player) {
-  console.log(computer);
   if (computer == "rock" && player == "scissors") {
     return "You Lose! " + computer + " beats " + player;
   }
@@ -53,4 +58,13 @@ function playRound(computer, player) {
   return "Somthing went wrong."
 }
 
-console.log(playRound(computer, player));
+
+function game() {
+  for (i = 0; i < 5; i++) {
+    let computer = computerPlay();
+    let player = playerSelection().toLowerCase();
+    console.log(playRound(computer, player));
+  }
+}
+
+function score()
