@@ -86,7 +86,7 @@ function game() {
     // console.log(`Current score: computer = ${computerWins} player = ${playerWins} ties = ${ties}`)
   }
 
-  console.log(`Final score is computer: ${computerWins} player: ${playerWins} ties: ${ties}`);
+  console.log(`Final score is computer: ${computerWins}, player: ${playerWins}, ties: ${ties}.`);
   console.log(displayWinner(playerWins, computerWins));
 
 }
