@@ -1,5 +1,12 @@
+// This script is a 5 round game of rock paper scissors where a user plays the computer.
+// The computerPlay() funcions chooses "rock", "paper", or "scissors" at random for the computer.
+// The playerSelection() function prompts the user to choose "rock", "paper", or "scissors".
+// The playRound() funtion returns a string telling who the winner is or if it's a tie.
+// The Game() funtion uses a for loop to call playRound() 5 times and returns a string telling
+// who is the winner of the 5 round game or if it is a tie.
 
-game();
+
+console.log(game());
 
 function computerPlay(){
   let options = ["rock", "paper", "scissors"];
@@ -65,7 +72,7 @@ function game() {
   }
 
   console.log(`Final score is computer: ${computerWins}, player: ${playerWins}, ties: ${ties}.`);
-  console.log(displayWinner(playerWins, computerWins));
+  return displayWinner(playerWins, computerWins);
 
 }
 
