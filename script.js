@@ -83,7 +83,7 @@ function game() {
       case "tie":
         ties++;
     }
-    console.log(`Current score: computer = ${computerWins} player = ${playerWins} ties = ${ties}`)
+    // console.log(`Current score: computer = ${computerWins} player = ${playerWins} ties = ${ties}`)
   }
 
   console.log(`Final score is computer: ${computerWins} player: ${playerWins} ties: ${ties}`);
