@@ -36,23 +36,28 @@ function playerSelection() {
 
 function playRound(computer, player) {
   if (computer == "rock" && player == "scissors") {
-    return "You Lose! " + computer + " beats " + player;
+    console.log(`You Lose! ${computer} beats ${player}`)
+    return "computer"
   }
 
   else if (computer == "paper" && player == "rock") {
-    return `You Lose! ${computer} beats ${player}`
+    console.log(`You Lose! ${computer} beats ${player}`)
+    return "computer"
   }
 
   else if (computer == "scissors" && player == "paper") {
-    return `You Lose! ${computer} beats ${player}`
+    console.log(`You Lose! ${computer} beats ${player}`)
+    return "computer"
   }
 
   else if (computer == player) {
-    return `It's a tie!`
+    console.log(`It's a tie!`)
+    return "tie"
   }
 
   else {
-    return `You Win! ${player} beats ${computer}`
+    console.log(`You Win! ${player} beats ${computer}`)
+    return "player"
   }
 
   return "Somthing went wrong."
@@ -63,8 +68,6 @@ function game() {
   for (i = 0; i < 5; i++) {
     let computer = computerPlay();
     let player = playerSelection().toLowerCase();
-    console.log(playRound(computer, player));
+    playRound(computer, player)
   }
 }
-
-function score()
