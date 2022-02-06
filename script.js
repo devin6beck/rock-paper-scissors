@@ -6,7 +6,28 @@
 // who is the winner of the 5 round game or if it is a tie.
 
 
-console.log(game());
+// console.log(game());
+
+const rockButton = document.getElementById("rock");
+const paperButton = document.getElementById("paper");
+const scissorsButton = document.getElementById("scissors");
+
+rockButton.addEventListener("click", () => {
+  playRound(computerPlay(), "rock");
+});
+
+paperButton.addEventListener("click", () => {
+  playRound(computerPlay(), "paper")
+});
+
+scissorsButton.addEventListener("click", () => {
+  playRound(computerPlay(), "scissors")
+});
+
+
+
+
+
 
 function computerPlay(){
   let options = ["rock", "paper", "scissors"];
@@ -37,6 +58,7 @@ function playRound(computer, player) {
     return "tie"
   }
   else {
+
     console.log(`You Win! ${player} beats ${computer}`)
     return "player"
   }
@@ -45,30 +67,30 @@ function playRound(computer, player) {
 }
 
 
-function game() {
-  let playerWins = 0;
-  let computerWins = 0;
-  let ties = 0;
+// function game() {
+//   let playerWins = 0;
+//   let computerWins = 0;
+//   let ties = 0;
 
-  for (i = 0; i < 5; i++) {
-    let computer = computerPlay();
-    let player = playerSelection().toLowerCase();
-    let outcome = playRound(computer, player);
+//   for (i = 0; i < 5; i++) {
+//     let computer = computerPlay();
+//     let player = playerSelection().toLowerCase();
+//     let outcome = playRound(computer, player);
 
-    switch (outcome) {
-      case "computer":
-        computerWins++;
-        break;
-      case "player":
-        playerWins++;
-        break;
-      case "tie":
-        ties++;
-    }
-  }
-  console.log(`Final score is computer: ${computerWins}, player: ${playerWins}, ties: ${ties}.`);
-  return displayWinner(playerWins, computerWins);
-}
+//     switch (outcome) {
+//       case "computer":
+//         computerWins++;
+//         break;
+//       case "player":
+//         playerWins++;
+//         break;
+//       case "tie":
+//         ties++;
+//     }
+//   }
+//   console.log(`Final score is computer: ${computerWins}, player: ${playerWins}, ties: ${ties}.`);
+//   return displayWinner(playerWins, computerWins);
+// }
 
 function displayWinner(playerWins, computerWins) {
   if (playerWins > computerWins) {
