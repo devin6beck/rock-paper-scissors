@@ -1,14 +1,12 @@
-// This script is a 5 round game of rock paper scissors where a user plays the computer.
+// This script is game of rock paper scissors where a user plays the computer until one reaches a score of 5.
 // The computerPlay() funcions chooses "rock", "paper", or "scissors" at random for the computer.
 // The playerSelection() function prompts the user to choose "rock", "paper", or "scissors".
 // The playRound() funtion returns a string telling who the winner of the round is or if it's a tie.
-// The Game() funtion uses a for loop to call playRound() 5 times and returns a string telling
-// who is the winner of the 5 round game or if it is a tie.
+// The Game() funtion uses playRound() 5 times and returns a string telling who is the winner of the each round.
+// Game() aslo displays the score after each round. If a score of 5 is reached the winner is displayed
 
 
 // console.log(game());
-
-
 
 
 game();
@@ -28,8 +26,6 @@ function game() {
       switch (outcome) {
         case "computer":
           computerWins++;
-          console.log("adsfasd computer one")
-          console.log(computerWins)
           break;
         case "player":
           playerWins++;
@@ -37,7 +33,7 @@ function game() {
         case "tie":
           ties++;
       }
-      // display score so fare
+      // display score so far
       document.getElementById("content").innerHTML = `Player score = ${playerWins}<br> Computer score = ${computerWins}<br> Ties = ${ties}`
 
       if (playerWins >= 5 || computerWins >= 5) {
@@ -53,36 +49,6 @@ function game() {
 
   
 }
-
-
-// function game() {
-//   const rockButton = document.getElementById("rock");
-//   const paperButton = document.getElementById("paper");
-//   const scissorsButton = document.getElementById("scissors");
-
-//   let playerWins = 0;
-//   let computerWins = 0;
-//   let ties = 0;
-
-//   while (playerWins < 5 || computerWins < 5) {
-//     rockButton.addEventListener("click", () => {
-//       let outcome = playRound(computerPlay(), "rock");
-//       console.log(outcome);
-//     });
-    
-//     paperButton.addEventListener("click", () => {
-//       playRound(computerPlay(), "paper")
-//     });
-    
-//     scissorsButton.addEventListener("click", () => {
-//       playRound(computerPlay(), "scissors")
-//     });
-//   }
-  
-
-  
-// }
-
 
 
 function computerPlay(){
@@ -120,32 +86,6 @@ function playRound(computer, player) {
 
   return "Somthing went wrong."
 }
-
-
-// function game() {
-//   let playerWins = 0;
-//   let computerWins = 0;
-//   let ties = 0;
-
-//   for (i = 0; i < 5; i++) {
-//     let computer = computerPlay();
-//     let player = playerSelection().toLowerCase();
-//     let outcome = playRound(computer, player);
-
-//     switch (outcome) {
-//       case "computer":
-//         computerWins++;
-//         break;
-//       case "player":
-//         playerWins++;
-//         break;
-//       case "tie":
-//         ties++;
-//     }
-//   }
-//   console.log(`Final score is computer: ${computerWins}, player: ${playerWins}, ties: ${ties}.`);
-//   return displayWinner(playerWins, computerWins);
-// }
 
 function displayWinner(playerWins, computerWins) {
   if (playerWins > computerWins) {
