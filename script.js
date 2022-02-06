@@ -26,9 +26,6 @@ scissorsButton.addEventListener("click", () => {
 
 
 
-
-
-
 function computerPlay(){
   let options = ["rock", "paper", "scissors"];
   // Choose rock, paper, or scissors at random
@@ -42,24 +39,23 @@ function playerSelection() {
 
 function playRound(computer, player) {
   if (computer == "rock" && player == "scissors") {
-    console.log(`You Lose! ${computer} beats ${player}`)
+    document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
     return "computer"
   }
   else if (computer == "paper" && player == "rock") {
-    console.log(`You Lose! ${computer} beats ${player}`)
+    document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
     return "computer"
   }
   else if (computer == "scissors" && player == "paper") {
-    console.log(`You Lose! ${computer} beats ${player}`)
+    document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
     return "computer"
   }
   else if (computer == player) {
-    console.log(`It's a tie!`)
+    document.getElementById("results").innerHTML = `It's a tie!`
     return "tie"
   }
   else {
-
-    console.log(`You Win! ${player} beats ${computer}`)
+    document.getElementById("results").innerHTML = `You Win! ${player} beats ${computer}`
     return "player"
   }
 
