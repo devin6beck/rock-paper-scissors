@@ -8,21 +8,44 @@
 
 // console.log(game());
 
-const rockButton = document.getElementById("rock");
-const paperButton = document.getElementById("paper");
-const scissorsButton = document.getElementById("scissors");
 
-rockButton.addEventListener("click", () => {
-  playRound(computerPlay(), "rock");
-});
+const buttons = document.querySelectorAll("button");
 
-paperButton.addEventListener("click", () => {
-  playRound(computerPlay(), "paper")
-});
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const playerSelection = button.id;
+    // const computerSelection = computerPlay();
+    playRound(computerPlay(), playerSelection);
+  })
+})
 
-scissorsButton.addEventListener("click", () => {
-  playRound(computerPlay(), "scissors")
-});
+// function game() {
+//   const rockButton = document.getElementById("rock");
+//   const paperButton = document.getElementById("paper");
+//   const scissorsButton = document.getElementById("scissors");
+
+//   let playerWins = 0;
+//   let computerWins = 0;
+//   let ties = 0;
+
+//   while (playerWins < 5 || computerWins < 5) {
+//     rockButton.addEventListener("click", () => {
+//       let outcome = playRound(computerPlay(), "rock");
+//       console.log(outcome);
+//     });
+    
+//     paperButton.addEventListener("click", () => {
+//       playRound(computerPlay(), "paper")
+//     });
+    
+//     scissorsButton.addEventListener("click", () => {
+//       playRound(computerPlay(), "scissors")
+//     });
+//   }
+  
+
+  
+// }
 
 
 
