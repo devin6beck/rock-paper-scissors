@@ -6,8 +6,6 @@
 // Game() aslo displays the score after each round. If a score of 5 is reached the winner is displayed
 
 
-// console.log(game());
-
 
 let playerWins = 0;
 let computerWins = 0;
@@ -18,8 +16,12 @@ buttons.forEach((button) => {
   button.addEventListener("click", () => {
     if (playerWins < 5 && computerWins < 5) {
 
+      // set playerSelection to either "rock", "paper", or "scissors"
       const playerSelection = button.id;
+
+      // outcome is either "computer", "player", or "tie"
       let outcome = playRound(computerPlay(), playerSelection);
+
       switch (outcome) {
         case "computer":
           computerWins++;
@@ -31,9 +33,8 @@ buttons.forEach((button) => {
           ties++;
       }
 
-      // show score
-      document.getElementById("content").innerHTML = `Player score = ${playerWins}<br> Computer score = ${computerWins}<br> Ties = ${ties}`
-
+      // Once the computer or player has 5 points a message is displayed telling
+      // who is the winner and to refresh the page to play agin
       if (playerWins >= 5 || computerWins >= 5) {
         if (playerWins > computerWins) {
           document.getElementById("results").innerHTML = "You won the game! <br>"
@@ -41,31 +42,38 @@ buttons.forEach((button) => {
         else {
           document.getElementById("results").innerHTML = "You lost the game :( <br>" 
         }
-        document.getElementById("results").innerHTML += "Refresh the page to play a new game."
+        document.getElementById("results").innerHTML +=
+         "Refresh the page to play a new game."
       }
+      // show score
+      document.getElementById("content").innerHTML =
+       `Player score = ${playerWins}<br>
+        Computer score = ${computerWins}<br>
+        Ties = ${ties}`
     }
   })
 })
 
-
+// picks rock, paper, or scissors at random for the computer
 function computerPlay(){
   let options = ["rock", "paper", "scissors"];
-  // Choose rock, paper, or scissors at random
   return options[Math.floor(Math.random()*options.length)];
 }
 
+// plays a round of rock paper scissors and returns "computer", "player", or "tie".
+// parameters must be "rock", "paper", or "scissors"
 function playRound(computer, player) {
   
   document.body.style.color = "white"
 
   if (computer == "rock" && player == "scissors") {
-    return computerWonMessage(computer, player);
+    return computerWon(computer, player);
   }
   else if (computer == "paper" && player == "rock") {
-    return computerWonMessage(computer, player);
+    return computerWon(computer, player);
   }
   else if (computer == "scissors" && player == "paper") {
-    return computerWonMessage(computer, player);
+    return computerWon(computer, player);
   }
   else if (computer == player) {
     document.getElementById("results").innerHTML = `It's a tie!`
@@ -75,11 +83,12 @@ function playRound(computer, player) {
     document.getElementById("results").innerHTML = `You Win! ${player} beats ${computer}`
     return "player"
   }
-
-  return "Somthing went wrong."
 }
 
-function computerWonMessage(computerSelection, playerSelection) {
-  document.getElementById("results").innerHTML = `You Lose! ${computerSelection} beats ${playerSelection}`
+// Shows a losing message and returns "computer"
+function computerWon(computerSelection, playerSelection) {
+  document.getElementById("results").innerHTML =
+   `You Lose! ${computerSelection} beats ${playerSelection}`
+   
   return "computer"
 }
