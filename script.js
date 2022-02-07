@@ -63,6 +63,9 @@ function playerSelection() {
 }
 
 function playRound(computer, player) {
+  
+  document.body.style.color = "white"
+
   if (computer == "rock" && player == "scissors") {
     document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
     return "computer"
