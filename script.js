@@ -30,68 +30,28 @@ buttons.forEach((button) => {
         case "tie":
           ties++;
       }
+
+      // show score
       document.getElementById("content").innerHTML = `Player score = ${playerWins}<br> Computer score = ${computerWins}<br> Ties = ${ties}`
+
       if (playerWins >= 5 || computerWins >= 5) {
         if (playerWins > computerWins) {
-          document.getElementById("content").innerHTML = "You won the game!"
+          document.getElementById("results").innerHTML = "You won the game! <br>"
         }
         else {
-          document.getElementById("content").innerHTML = "You lost the game :("
+          document.getElementById("results").innerHTML = "You lost the game :( <br>" 
         }
+        document.getElementById("results").innerHTML += "Refresh the page to play a new game."
       }
     }
   })
 })
-
-// function game() {
-
-//   let playerWins = 0;
-//   let computerWins = 0;
-//   let ties = 0;
-
-//   const buttons = document.querySelectorAll("button");
-//   buttons.forEach((button) => {
-//     button.addEventListener("click", () => {
-//       const playerSelection = button.id;
-//       let outcome = playRound(computerPlay(), playerSelection);
-
-//       switch (outcome) {
-//         case "computer":
-//           computerWins++;
-//           break;
-//         case "player":
-//           playerWins++;
-//           break;
-//         case "tie":
-//           ties++;
-//       }
-//       // display score so far
-//       document.getElementById("content").innerHTML = `Player score = ${playerWins}<br> Computer score = ${computerWins}<br> Ties = ${ties}`
-
-//       if (playerWins >= 5 || computerWins >= 5) {
-//         if (playerWins > computerWins) {
-//           document.getElementById("content").innerHTML = "You won the game!"
-//         }
-//         else {
-//           document.getElementById("content").innerHTML = "You lost the game :("
-//         }
-//       }
-//     })
-//   })
-
-  
-// }
 
 
 function computerPlay(){
   let options = ["rock", "paper", "scissors"];
   // Choose rock, paper, or scissors at random
   return options[Math.floor(Math.random()*options.length)];
-}
-
-function playerSelection() {
-  let answer = prompt("What do you choose?");
-  return answer;
 }
 
 function playRound(computer, player) {
