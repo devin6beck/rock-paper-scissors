@@ -1,6 +1,9 @@
 
 body {
   background-color: black;
+  max-width: fit-content;
+  margin: 40px auto 
+
 }
 
 .results {
