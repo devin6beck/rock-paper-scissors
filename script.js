@@ -9,20 +9,17 @@
 // console.log(game());
 
 
-game();
+let playerWins = 0;
+let computerWins = 0;
+let ties = 0;
+const buttons = document.querySelectorAll("button");
 
-function game() {
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    if (playerWins < 5 && computerWins < 5) {
 
-  let playerWins = 0;
-  let computerWins = 0;
-  let ties = 0;
-
-  const buttons = document.querySelectorAll("button");
-  buttons.forEach((button) => {
-    button.addEventListener("click", () => {
       const playerSelection = button.id;
       let outcome = playRound(computerPlay(), playerSelection);
-
       switch (outcome) {
         case "computer":
           computerWins++;
@@ -33,9 +30,7 @@ function game() {
         case "tie":
           ties++;
       }
-      // display score so far
       document.getElementById("content").innerHTML = `Player score = ${playerWins}<br> Computer score = ${computerWins}<br> Ties = ${ties}`
-
       if (playerWins >= 5 || computerWins >= 5) {
         if (playerWins > computerWins) {
           document.getElementById("content").innerHTML = "You won the game!"
@@ -44,11 +39,48 @@ function game() {
           document.getElementById("content").innerHTML = "You lost the game :("
         }
       }
-    })
+    }
   })
+})
+
+// function game() {
+
+//   let playerWins = 0;
+//   let computerWins = 0;
+//   let ties = 0;
+
+//   const buttons = document.querySelectorAll("button");
+//   buttons.forEach((button) => {
+//     button.addEventListener("click", () => {
+//       const playerSelection = button.id;
+//       let outcome = playRound(computerPlay(), playerSelection);
+
+//       switch (outcome) {
+//         case "computer":
+//           computerWins++;
+//           break;
+//         case "player":
+//           playerWins++;
+//           break;
+//         case "tie":
+//           ties++;
+//       }
+//       // display score so far
+//       document.getElementById("content").innerHTML = `Player score = ${playerWins}<br> Computer score = ${computerWins}<br> Ties = ${ties}`
+
+//       if (playerWins >= 5 || computerWins >= 5) {
+//         if (playerWins > computerWins) {
+//           document.getElementById("content").innerHTML = "You won the game!"
+//         }
+//         else {
+//           document.getElementById("content").innerHTML = "You lost the game :("
+//         }
+//       }
+//     })
+//   })
 
   
-}
+// }
 
 
 function computerPlay(){
