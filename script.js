@@ -59,16 +59,13 @@ function playRound(computer, player) {
   document.body.style.color = "white"
 
   if (computer == "rock" && player == "scissors") {
-    document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
-    return "computer"
+    return computerWonMessage(computer, player);
   }
   else if (computer == "paper" && player == "rock") {
-    document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
-    return "computer"
+    return computerWonMessage(computer, player);
   }
   else if (computer == "scissors" && player == "paper") {
-    document.getElementById("results").innerHTML = `You Lose! ${computer} beats ${player}`
-    return "computer"
+    return computerWonMessage(computer, player);
   }
   else if (computer == player) {
     document.getElementById("results").innerHTML = `It's a tie!`
@@ -82,14 +79,7 @@ function playRound(computer, player) {
   return "Somthing went wrong."
 }
 
-function displayWinner(playerWins, computerWins) {
-  if (playerWins > computerWins) {
-    return "You beat the computer! :)"
-  }
-  else if (computerWins > playerWins) {
-    return "The computer beat you! :("
-  }
-  else {
-    return "It's a tie!"
-  }
+function computerWonMessage(computerSelection, playerSelection) {
+  document.getElementById("results").innerHTML = `You Lose! ${computerSelection} beats ${playerSelection}`
+  return "computer"
 }
