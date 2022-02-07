@@ -14,6 +14,9 @@ const buttons = document.querySelectorAll("button");
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
+
+    // as long as playerWins and computerWins are less than 5 then a round
+    // of rock paper scissors is played
     if (playerWins < 5 && computerWins < 5) {
 
       // set playerSelection to either "rock", "paper", or "scissors"
@@ -45,6 +48,7 @@ buttons.forEach((button) => {
         document.getElementById("results").innerHTML +=
          "Refresh the page to play a new game."
       }
+
       // show score
       document.getElementById("content").innerHTML =
        `Player score = ${playerWins}<br>
@@ -89,6 +93,5 @@ function playRound(computer, player) {
 function computerWon(computerSelection, playerSelection) {
   document.getElementById("results").innerHTML =
    `You Lose! ${computerSelection} beats ${playerSelection}`
-   
   return "computer"
 }
