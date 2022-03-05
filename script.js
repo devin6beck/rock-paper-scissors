@@ -68,7 +68,7 @@ function computerPlay(){
 // parameters must be "rock", "paper", or "scissors"
 function playRound(computer, player) {
   
-  document.body.style.color = "white"
+  
 
   if (computer == "rock" && player == "scissors") {
     return computerWon(computer, player);
