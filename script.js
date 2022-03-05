@@ -23,7 +23,7 @@ buttons.forEach((button) => {
       const playerSelection = button.id;
 
       // outcome is either "computer", "player", or "tie"
-      let outcome = playRound(computerPlay(), playerSelection);
+      const outcome = playRound(computerPlay(), playerSelection);
 
       switch (outcome) {
         case "computer":
@@ -68,8 +68,6 @@ function computerPlay(){
 // parameters must be "rock", "paper", or "scissors"
 function playRound(computer, player) {
   
-  
-
   if (computer == "rock" && player == "scissors") {
     return computerWon(computer, player);
   }
